@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from anki.media import MediaManager
 import time
 from aqt import mw
@@ -28,43 +27,30 @@ def rreplace(s:str, old:str, new:str, max_replace=1):
 def append_sound_to_note(text, filename):
     """
     append sound file to the last field of the card.
-=======
-from aqt.sound import av_player
-from anki.media import MediaManager
-from aqt import mw
-from aqt.utils import showInfo, qconnect, showText
-from aqt.qt import QKeySequence, QAction, QWidget
-# from aqt.editor import Editor
-# from anki.hooks import addHook
-from aqt.utils import tooltip, getText
-from .pronunciation import create_sound_file, config
-
-
-def append_sound_to_note(text, filename):
-    """
-    append sound file to the last field of the card.
-
->>>>>>> c55ba66d693f0c9febfae10229f2268b188f05af
     If the text of the sound is found in that field, it will only append the play button in front of it.
     """
     try:
         note = mw.reviewer.card.note()
         ls_tp = note.items()
+        first_field_name = ls_tp[0][0]
+        first_field_content= ls_tp[0][1]
         last_field_name = ls_tp[-1][0]
         last_field_content = ls_tp[-1][1]
-        if text in last_field_content:
-<<<<<<< HEAD
-            note[last_field_name] = rreplace(last_field_content, text, f"{text} [sound:{filename}]")
+
+        state = mw.reviewer.state
+        if state == "question":
+            # the sound will be added to the question side at the end without writing the sound contents
+            # this is done because of the pronunciation of the words puts at the end of first field.
+            note[first_field_name] = first_field_content + f" [sound:{filename}]"
         else:
-            note[last_field_name] = last_field_content + f"\n<br>\n{text} [sound:{filename}]"
-            mw.col.update_note(note)
+            # this part is for answer state.
+            if text in last_field_content:
+                note[last_field_name] = rreplace(last_field_content, text, f"{text} [sound:{filename}]")
+            else:
+                note[last_field_name] = last_field_content + f"\n<br>\n{text} [sound:{filename}]"
+        mw.col.update_note(note)
         mw.reviewer._redraw_current_card()
-=======
-            note[last_field_name] = last_field_content.replace(text, f"{text} : [sound:{filename}]")
-        else:
-            note[last_field_name] = last_field_content + f"\n<br>\n{text}: [sound:{filename}]"
-            mw.col.update_note(note)
->>>>>>> c55ba66d693f0c9febfae10229f2268b188f05af
+        tooltip("Sound is added.", 500)
     except AttributeError:
         showText(
             "The sound did not append to any note. Because you have to be in review mode"
@@ -84,11 +70,7 @@ def prompt_search():
         """number 1 means, user click to okay."""
         binary_data = create_sound_file(text)
         filename = append_sound_to_media_file(desired_name="google_api.mp3", binary_text=binary_data)
-<<<<<<< HEAD
         # tooltip("Playing...", period=1000)
-=======
-        tooltip("Playing...", period=1000)
->>>>>>> c55ba66d693f0c9febfae10229f2268b188f05af
         av_player.play_file(filename)
         append_sound_to_note(text, filename)
     elif number == 0:
@@ -100,13 +82,5 @@ def prompt_search():
 
 action = QAction("Google-TTS API", mw)
 action.setShortcut(QKeySequence(config["shortcut"]))
-<<<<<<< HEAD
 qconnect(action.triggered, prompt_search)
-=======
-
-# set it to call prompt_search when it's clicked
-qconnect(action.triggered, prompt_search)
-
-# and add it to the tools menu
->>>>>>> c55ba66d693f0c9febfae10229f2268b188f05af
 mw.form.menuTools.addAction(action)
