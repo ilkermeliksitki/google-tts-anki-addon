@@ -1,12 +1,8 @@
-# includes api key so it will be ignored.
-config.json
-meta.json
+*meta.json
 
 # pycharm file
 .idea
-<<<<<<< HEAD
 
 # python
 __pycache__
-=======
->>>>>>> c55ba66d693f0c9febfae10229f2268b188f05af
+

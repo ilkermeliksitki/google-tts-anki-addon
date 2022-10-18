@@ -2,6 +2,6 @@
   "language-code": "en-US",
   "name" :"en-US-Wavenet-C",
   "speaking-rate": 0.96,
-  "google-tts-api-key": <YOUR-API>,
+  "google-tts-api-key": "<YOUR-GOOGLE-CLOUD-API>",
   "shortcut": "q"
 }
