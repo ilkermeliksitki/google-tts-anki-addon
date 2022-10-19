@@ -8,4 +8,7 @@ For English:
 <br>
 &nbsp;&nbsp;&nbsp; "language-code": "en-US",
 <br>
-&nbsp;&nbsp;&nbsp; "name": "en-US-Wavenet-C"&nbsp;
+&nbsp;&nbsp;&nbsp; "name": "en-US-Neural2-F"
+<br>
+if random is enabled, the accents will be randomly selected.
+
