@@ -2,8 +2,11 @@ import requests
 import base64
 import json
 import random
+import time
 from aqt import mw
 
+# different seeding based on time 
+random.seed(time.time())
 config = mw.addonManager.getConfig(__name__)
 
 
@@ -13,9 +16,10 @@ def create_sound_file(text):
     # randomize accents if it is random is true in config file.
     if config["random"]:
         name, language_code = random.choice(seq=[('en-US-Neural2-F', 'en-US'), ('en-AU-Neural2-C', 'en-AU'), ('en-GB-Neural2-C', 'en-GB')])
+        print(name, language_code)
     else:
         name = config['name']
-        language_code = config['language_code']
+        language_code = config['language-code']
 
     params = {
         "key": config["google-tts-api-key"],
