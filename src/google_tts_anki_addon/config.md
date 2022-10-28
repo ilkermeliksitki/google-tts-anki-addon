@@ -1,6 +1,6 @@
 For German:
 <br>
-&nbsp;&nbsp;&nbsp; "language-code": "de",
+&nbsp;&nbsp;&nbsp; "language-code": "de-DE",
 <br>
 &nbsp;&nbsp;&nbsp; "name": "de-DE-Neural2-F",
 <br><br>
