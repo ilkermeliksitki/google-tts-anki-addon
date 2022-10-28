@@ -80,7 +80,7 @@ def prompt_search():
         showInfo("Text should be grater than one letter.")
 
 
-action = QAction("Google-TTS API", mw)
+action = QAction("&Google-TTS API", mw)
 action.setShortcut(QKeySequence(config["shortcut"]))
 qconnect(action.triggered, prompt_search)
 mw.form.menuTools.addAction(action)
