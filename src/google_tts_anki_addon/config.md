@@ -1,14 +1,15 @@
-For German:
-<br>
-&nbsp;&nbsp;&nbsp; "language-code": "de-DE",
-<br>
-&nbsp;&nbsp;&nbsp; "name": "de-DE-Neural2-F",
-<br><br>
-For English:
-<br>
-&nbsp;&nbsp;&nbsp; "language-code": "en-US",
-<br>
-&nbsp;&nbsp;&nbsp; "name": "en-US-Neural2-F"
-<br>
-if random is enabled, the accents will be randomly selected.
+##### For German:
+<ul>
+<li>"language-code": "de-DE"</li>
+<li>"name": "de-DE-Neural2-F",</li>
+</ul>
+
+##### For English:
+<ul>
+<li>"language-code": "en-US",</li>
+<li>"name": "en-US-Neural2-F"</li>
+</ul>
+
+##### Random
+if random is enabled, the english accents randomly selected among `US`, `AUS`, and `UK` accents.
 
