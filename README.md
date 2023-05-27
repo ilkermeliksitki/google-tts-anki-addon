@@ -20,9 +20,9 @@ $ ln -s /path/to/repository/src/google_tts_anki_addon/ google_tts_anki_addon
 ```
 Enter you google cloud api key, as shown in the following gif.
 <br><br>
-<img src="./assets/api-key.gif">
+<img src="./src/google_tts_anki_addon/assets/api-key.gif">
 
 ## Usage
 Either use the default key stroke `q`, or use by clicking `Tools > Google-TTS API`
 <br><br>
-<img src="./assets/usage.gif">
+<img src="./src/google_tts_anki_addon/assets/usage.gif">
