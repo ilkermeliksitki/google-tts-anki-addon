@@ -1,5 +1,5 @@
 {
-  "random": true,
+  "random": false,
   "language-code": "en-US",
   "name" :"en-US-Wavenet-C",
   "speaking-rate": 0.96,
