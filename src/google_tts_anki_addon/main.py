@@ -68,6 +68,10 @@ def prompt_search():
     text = text.strip()
     if len(text) > 1 and number == 1:
         """number 1 means, user click to okay."""
+        if text.endswith("~~"):
+            text = text[:-2] + " jemand oder etwas Akkusativ"
+        elif text.endswith("~"):
+            text = text[:-1] + " etwas Akkusativ"
         binary_data = create_sound_file(text)
         filename = append_sound_to_media_file(desired_name="google_api.mp3", binary_text=binary_data)
         # tooltip("Playing...", period=1000)
