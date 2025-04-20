@@ -12,14 +12,15 @@ config = mw.addonManager.getConfig(__name__)
 
 def create_sound_file(text):
     url = "https://texttospeech.googleapis.com/v1/text:synthesize"
-    
-    # randomize accents if it is random is true in config file.
-    if config["random"]:
-        name, language_code = random.choice(seq=[('en-US-Neural2-F', 'en-US'), ('en-AU-Neural2-C', 'en-AU'), ('en-GB-Neural2-C', 'en-GB')])
-        print(name, language_code)
+
+    if config["language-code"] == "en":
+        language_code = "en-US"
+        name = random.choice(["en-US-Chirp-HD-F", "en-US-Chirp3-HD-Aoede", "en-US-Chirp3-HD-Kore", "en-US-Chirp-HD-O"])
+    elif config["language-code"] == "de":
+        language_code = "de-DE"
+        name = random.choice(["de-DE-Chirp-HD-O", "de-DE-Chirp-HD-F", "de-DE-Chirp3-HD-Charon", "de-DE-Chirp3-HD-Kore", "de-DE-Chirp3-HD-Zephyr"])
     else:
-        name = config['name']
-        language_code = config['language-code']
+        pass
 
     params = {
         "key": config["google-tts-api-key"],
@@ -38,7 +39,6 @@ def create_sound_file(text):
            "effectsProfileId": [
                 "headphone-class-device"
             ],
-        "speakingRate": 0.97
         }
     }
 
